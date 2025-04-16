@@ -1,12 +1,13 @@
 {
   "expo": {
-    "name": "my-expo-app",
-    "slug": "my-expo-app",
+    "name": "EasyTop Up",
+    "slug": "EasyTop Up",
     "version": "1.0.0",
     "jsEngine": "hermes",
     "experimental": {
       "newArchEnabled": true
     },
+    "plugins" : ["react-native-reanimated/plugin"]
 
     "web": {
       "favicon": "./assets/favicon.png"
@@ -30,13 +31,16 @@
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "useFrameworks" : "static",
+      "newArchEnabled": true
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff"
-      }
+        "backgroundColor": "#ffffff",
+      },
+      "newArchEnabled": true
     }
   }
 }
