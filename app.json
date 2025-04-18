@@ -7,7 +7,7 @@
     "experimental": {
       "newArchEnabled": true
     },
-    "plugins" : ["react-native-reanimated/plugin"]
+    "plugins" : ["react-native-reanimated/plugin"],
 
     "web": {
       "favicon": "./assets/favicon.png"
