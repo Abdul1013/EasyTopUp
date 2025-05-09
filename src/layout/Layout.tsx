@@ -1,12 +1,8 @@
-import React, { Children } from 'react';
-import { SafeAreaView } from 'react-native-safe-area-context';
-import { View, Text, TouchableOpacity, ScrollView } from 'react-native';
 import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
-import { useNavigation } from '@react-navigation/native';
-
-
-
-
+import { DrawerActions, useNavigation } from '@react-navigation/native';
+import React, { Children } from 'react';
+import { View, Text, TouchableOpacity, ScrollView, StyleSheet } from 'react-native';
+import { SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -15,30 +11,49 @@ type LayoutProps = {
   showMenu?: boolean;
 };
 
-const Layout = ({ children, scroll=false, showHeader = true, showMenu = true }: LayoutProps) => {
+const Layout = ({ children, scroll = false, showHeader = true, showMenu = true }: LayoutProps) => {
   const navigation = useNavigation();
-  const Wrapper = scroll ? ScrollView : View 
+  const Wrapper = scroll ? ScrollView : View;
+
+  const openDrawer = () => {
+    navigation.dispatch(DrawerActions.openDrawer());
+  };
 
   return (
-    <SafeAreaView className='flex-1 bg-[#fff]'>
+    <SafeAreaView edges={['top']} style={{ flex: 1 }}>
       {showHeader && (
-        <View className='h-[60px] px-44 flex-row items-center border-spacing-2 '>
+        <View
+          className="flex-column flex  h-[60px]  border-spacing-2 items-center bg-yellow-600 px-44 "
+          style={style.navHeader}>
           {showMenu && (
-            <TouchableOpacity 
-            // onPress={() => navigation.openDrawer()}
-            >
-              <Ionicons name="menu" size={24} color="black" className="bg-red-700" />
+            <TouchableOpacity onPress={() => openDrawer()}>
+              <Ionicons name="menu" size={30} color="black" />
             </TouchableOpacity>
           )}
-          <View>
-            <MaterialCommunityIcons name="credit-card-scan-outline" size={24} color="black" />
-            <Ionicons name="notifications-outline" size={24} color="black" />
+          <View style={style.otherNav}>
+            <MaterialCommunityIcons name="credit-card-scan-outline" size={30} color="black" />
+            <Ionicons name="notifications-outline" size={30} color="black" />
           </View>
         </View>
       )}
-         {React.createElement(Wrapper, { style: { flex: 1, padding: 16 } }, children)}
+      {React.createElement(Wrapper, { style: { flex: 1, padding: 5 } }, children)}
+
     </SafeAreaView>
   );
 };
-
+const style = StyleSheet.create({
+  navHeader: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginHorizontal: 5,
+    padding: 10,
+  },
+  otherNav: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    rowGap: 100,
+  },
+});
 export default Layout;
