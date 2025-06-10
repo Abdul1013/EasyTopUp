@@ -1,8 +1,3 @@
-Here's a **detailed `README.md` file** for a **React Native app** that enables users to **buy airtime, data, and make utility subscriptions (e.g., cable TV, electricity)**. You can paste this directly into your project's GitHub repo and tweak as needed:
-
----
-
-````markdown
 # 📱 EasyTopUp - React Native Utility Payment App
 
 **EasyTopUp** is a cross-platform mobile application built with **React Native** that allows users to easily purchase **airtime**, **mobile data**, and make **utility subscriptions** (like cable TV and electricity) directly from their phones.
@@ -56,14 +51,6 @@ Here's a **detailed `README.md` file** for a **React Native app** that enables u
 ├── app.json            # Expo/Project config
 └── package.json
 ```
-
----
-
-## 📸 Screenshots
-
-*Add screenshots or demo videos of the app here to show user flow.*
-
----
 
 ## 🔐 Authentication Flow
 
