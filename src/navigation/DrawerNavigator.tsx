@@ -8,13 +8,14 @@ import DrawerNav from '~/components/UI/DrawerNav';
 import KycScreen from '~/screens/KycScreen';
 import PricingScreen from '~/screens/PricingScreen';
 import { Colors } from '~/theme/theme';
+import LoginScreen from '~/screens/Login';
 
 const Drawer = createDrawerNavigator();
 
 const DrawerNavigator = () => {
   return (
     <Drawer.Navigator
-      initialRouteName="HomeTabs"
+      // initialRouteName="HomeTabs"
       drawerContent={(props) => <DrawerNav {...props} />}
       screenOptions={{
         headerShown: false,
@@ -27,7 +28,7 @@ const DrawerNavigator = () => {
       }}>
       <Drawer.Screen name="HomeTabs" component={BottomTabs} />
       <Drawer.Screen name="Kyc" component={KycScreen} />
-      <Drawer.Screen name="Pricing" component={PricingScreen} />
+      <Drawer.Screen name="Pricing" component={LoginScreen} />
     </Drawer.Navigator>
   );
 };
